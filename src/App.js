@@ -5,6 +5,9 @@ import "./App.css";
 import Header from "./components/Header/Header.component";
 import TodoList from "./components/TodoList/TodoList.component";
 import SubmitForm from "./components/SubmitForm/SubmitForm.component";
+import Row from "./components/Row/Row.component";
+import Col from "./components/Col/Col.component";
+import Container from "./components/Container/Container.component";
 
 class App extends React.Component {
   state = {
@@ -25,9 +28,20 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <div className="card frame">
-          <Header numTodos={this.state.tasks.length} />
-          <TodoList tasks={this.state.tasks} onDelete={this.handleDelete} />
-          <SubmitForm onFormSubmit={this.handleSubmit} />
+          <Row>
+            <Header numTodos={this.state.tasks.length} />
+          </Row>
+          <Row>
+            <Col>
+              <Container>
+                <TodoList
+                  tasks={this.state.tasks}
+                  onDelete={this.handleDelete}
+                />
+              </Container>
+              <SubmitForm onFormSubmit={this.handleSubmit} />
+            </Col>
+          </Row>
         </div>
       </div>
     );

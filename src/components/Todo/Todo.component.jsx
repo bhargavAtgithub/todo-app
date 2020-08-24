@@ -9,7 +9,9 @@ const Todo = (props) => {
         onClick={() => {
           props.onDelete(props.id);
         }}
-      ></button>
+      >
+        -
+      </button>
     </div>
   );
 };
